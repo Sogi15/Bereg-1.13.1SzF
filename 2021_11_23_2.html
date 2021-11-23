@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+
+    <!-- alapdíj:2000ft 
+    súly:100ft/kg 
+    km díj:150/km --> 
+</head> 
+
+<body> 
+    <form name="lap"> 
+        <!-- a súly megadására szolgáló mező-->
+        <input type="number" name="suly"> 
+        <!-- választó tag a távolság kiválasztásához-->
+        <select name="távolság"  id=""> 
+            <script> // a választási menüben választható városok és azok távolsága tömbbe rendezve
+                var varosok = [['Balmazújváros',28],['Hajdúböszrmény',19],['Hajdúnánás',46],['Hajdúdorog',36],['Hajdúvíd',30]]; 
+                // for ciklus az index használatával, hogy hogyan lépkedjen és kérdezze le a választott tételt
+                for (let i = 0; i < varosok.length; i++) { 
+                    // document.write parancs, hogy a következő html taget írja ki. a select taghez rendelve
+                    document.write("<option value="+varosok[i][1]+">"+varosok[i][0]+"</option>"); 
+                } 
+            </script> 
+        </select> 
+        <!-- Input button, hogy a kalkulálást megkezdjük-->
+        <input type="button" value="Ok" onclick="szamolas(document.lap.suly.value,document.lap.távolság.value)"> 
+    </form> 
+
+    <script> 
+    // konstansz változók a díjakról
+        function szamolas(suly,tavolsag){ 
+            const ALAPDÍJ = 2000; 
+            const SÚLYDÍJ = 100; 
+            const TÁVDÍJ = 150; 
+            // b és c változók csak számok lehetnek ezek meghatározása
+            var b = parseInt(suly); 
+            var c = parseInt(tavolsag); 
+            // az eredmény kiszámítása egy elembe (beírt adatok megszorzása az adott árakkal + alapdíj) - Matematikai egyenlet 
+            var eredm = ALAPDÍJ+b*SÚLYDÍJ+c*TÁVDÍJ; 
+            // az eredmény kiírása alert paranccsal
+            alert("Fizetendő: " +eredm); 
+        } 
+    </script> 
+</body> 
+
+</html> 
