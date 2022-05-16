@@ -1,0 +1,24 @@
+---
+Select EntStageName, StartDate,StartTime From engagements Join entertainers On entertainers.EntertainerID = engagements.EntertainerID  
+ORDER BY `engagements`.`StartDate`  ASC
+
+---
+Select EntStageName, concat(AgtFirstName, " ", AgtLastName) AS "Agent Name", EntZipCode,AgtZipCode From engagements Join entertainers ON entertainers.EntertainerID = engagements.EntertainerID JOIN agents ON agents.AgentID = engagements.AgentID where EntZipCode = AgtZipCode
+---
+Select BuildingName,ClassRoomId From buildings Join class_rooms ON buildings.BuildingCode = class_rooms.BuildingCode
+---
+Select concat(StudFirstName, " ", StudLastName) AS "Name",SubjectName,Grade From students Join student_schedules ON students.StudentID = student_schedules.StudentID JOIN classes ON student_schedules.ClassID = classes.ClassID JOIN subjects ON subjects.SubjectID = classes.SubjectID where Grade > 85 ANd subjectname = "Painting"
+---
+Select TeamName,concat(BowlerLastName, " ", BowlerFirstName) AS "Name" from bowlers JOIN teams ON bowlers.TeamID = teams.TeamID
+---
+Select concat(BowlerFirstName," ",BowlerLastName) as "Name",BowlerZip from bowlers where BowlerZip = BowlerZip
+---
+Select RecipeTitle,Preparation,RecipeClassDescription From recipes JOIN recipe_classes ON recipes.RecipeClassID = recipe_classes.RecipeClassID Where RecipeClassDescription = "Salad"
+---
+Select IngredientName,MeasurementDescription,Amount From measurements JOIN ingredients ON measurements.MeasureAmountID = ingredients.MeasureAmountID JOIN recipe_ingredients ON recipe_ingredients.MeasureAmountID = measurements.MeasureAmountID where Amount = 1
+---
+Select concat(CustFirstName, " ", CustLastName) as "Name",OrderDate from customers Join orders ON customers.CustomerID = orders.CustomerID ORDER BY `orders`.`OrderDate` ASC
+---
+Select CustLastName, EmpLastName from customers join orders on customers.CustomerID = orders.CustomerID Join employees on employees.EmployeeID = orders.EmployeeID where CustLastName = EmpLastName
+---
+Select concat(CustFirstName," ",CustLastName) as "Custname",CustCity, concat(EmpFirstName," ",EmpLastName) as "EmpName",EmpCity from customers join orders on customers.CustomerID = orders.CustomerID Join employees on employees.EmployeeID = orders.EmployeeID where CustCity = EmpCity

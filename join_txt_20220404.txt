@@ -1,0 +1,31 @@
+1-------------------
+
+Select `EntStageName`,`StartDate`, `EndDate`,`ContractPrice` FROM `engagements` JOIN `entertainers` ON engagements.EntertainerID = entertainers.EntertainerID
+
+2-------------------
+
+Select `EntStageName`,`StartDate`, `EndDate`,`ContractPrice`,`CustLastName` FROM `engagements` JOIN `entertainers` ON engagements.EntertainerID = entertainers.EntertainerID JOIN `customers` ON engagements.CustomerID = customers.CustomerID where `CustLastName` = "Berg" OR `CustLastName` = "Hallmark"
+
+3-------------------
+
+Select `SubjectName`,`WednesdaySchedule` FROM `subjects` JOIN `classes` ON subjects.SubjectID = classes.SubjectID WHERE `WednesdaySchedule` = 1
+
+4-------------------
+
+Select `StfFirstName`,`StfLastName`,`StudFirstName`,`StudLastName` FROM `staff` JOIN `students` where `StfFirstName` = StudFirstName
+
+5-------------------
+
+Select `TeamName`,`BowlerFirstName`,`BowlerLastName` FROM `teams` JOIN `bowlers` ON teams.CaptainID = bowlers.BowlerID
+
+6-------------------
+
+Select `RecipeTitle`,`IngredientName` FROM `recipes` JOIN recipe_ingredients ON recipe_ingredients.RecipeID = recipes.RecipeID JOIN `ingredients` ON ingredients.IngredientID = recipe_ingredients.IngredientID WHERE `IngredientName` = "Garlic" or `IngredientName` = "Beef"
+
+7-------------------
+
+SELECT `RecipeTitle`,`Preparation`,`RecipeClassDescription` From `recipes` JOIN recipe_classes ON recipe_classes.RecipeClassID = recipes.RecipeClassID
+
+8-------------------
+
+SELECT `IngredientName`,`IngredientClassDescription` FROM ingredients JOIN ingredient_classes ON ingredient_classes.IngredientClassID = ingredients.IngredientClassID
